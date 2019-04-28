@@ -2,27 +2,20 @@
 react-router-condition
 
 
+### install
+```
+npm i --save react-router-condition
+```
+
+
+### use
 ```javascript
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-const ConditionRoute = ({ condition, redirectURL, component: Component, ...rest }) => (
-  <Route {...rest} render={props => (condition ? <Component {...props} /> : <Redirect to={redirectURL} />)} />
-);
-
-ConditionRoute.propTypes = {
-  condition: PropTypes.bool.isRequired,
-  redirectURL: PropTypes.string.isRequired,
-  component: PropTypes.object.isRequired,
-};
-export default ConditionRoute;
+import { ConditionRouteRedirect as Route } from "react-router-condition";
+    
+<Route condition={checkAuth()} redirectURL="/" path="/setting" component={Setting} />
 
 ```
 
-```javascript
-    <ConditionRoute condition={checkAuth()} redirectURL="/" path="/setting" component={Setting} />
-```
 
 ## Todo
 
