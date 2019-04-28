@@ -3,9 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ConditionRouteRedirect = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+exports.ConditionRedirectRoute = exports.ConditionComponentRoute = undefined;
 
 var _react = require("react");
 
@@ -13,32 +11,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require("react-router-dom");
 
+var _ConditionComponentRoute = require("./ConditionComponentRoute");
+
+var _ConditionComponentRoute2 = _interopRequireDefault(_ConditionComponentRoute);
+
+var _ConditionRedirectRoute = require("./ConditionRedirectRoute");
+
+var _ConditionRedirectRoute2 = _interopRequireDefault(_ConditionRedirectRoute);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-// import PropTypes from "prop-types";
-
-var ConditionRouteRedirect = function ConditionRouteRedirect(_ref) {
-  var condition = _ref.condition,
-      redirectURL = _ref.redirectURL,
-      Component = _ref.component,
-      rest = _objectWithoutProperties(_ref, ["condition", "redirectURL", "component"]);
-
-  if (!(condition && redirectURL)) {
-    return _react2.default.createElement(_reactRouterDom.Route, rest);
-  }
-
-  // condition
-  return _react2.default.createElement(_reactRouterDom.Route, _extends({}, rest, {
-    render: function render(props) {
-      return condition ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: redirectURL });
-    }
-  }));
-};
-ConditionRouteRedirect.propTypes = {
-  condition: PropTypes.bool.isRequired,
-  redirectURL: PropTypes.string.isRequired,
-  component: PropTypes.object.isRequired
-};
-exports.ConditionRouteRedirect = ConditionRouteRedirect;
+exports.ConditionComponentRoute = _ConditionComponentRoute2.default;
+exports.ConditionRedirectRoute = _ConditionRedirectRoute2.default;
