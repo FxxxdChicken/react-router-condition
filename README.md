@@ -20,7 +20,7 @@ import { ConditionRedirectRoute as Route } from "react-router-condition";
 ```javascript
 import { ConditionComponentRoute as Route } from "react-router-condition";
     
-<Route condition={checkAuth()} path="/setting" component={Setting} failComponent={Login} />
+<Route path="/setting" condition={checkAuth()} component={Setting} failComponent={Login} />
 
 ```
 
