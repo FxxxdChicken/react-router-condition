@@ -8,15 +8,22 @@ npm i --save react-router-condition
 ```
 
 
-### use
+### use case 1
 ```javascript
-import { ConditionRouteRedirect as Route } from "react-router-condition";
+import { ConditionRedirectRoute as Route } from "react-router-condition";
     
-<Route condition={checkAuth()} redirectURL="/" path="/setting" component={Setting} />
+<Route path="/setting" condition={checkAuth()} component={Setting} redirectURL="/" />
 
 ```
 
+### use case 2
+```javascript
+import { ConditionComponentRoute as Route } from "react-router-condition";
+    
+<Route condition={checkAuth()} path="/setting" component={Setting} failComponent={Login} />
+
+```
 
 ## Todo
 
-Redirect, Component 추가하기
+hi
