@@ -24,6 +24,32 @@ import { ConditionComponentRoute as Route } from "react-router-condition";
 
 ```
 
+### use case 3
+```javascript
+import { PrivateRoute } from "react-router-condition";
+    
+<PrivateRoute condition={checkAuth()}  redirectURL="/">
+    <Route path="/setting" Compontent={Setting} />
+    <Route path="/profile" Compontent={Profile} />
+<PrivateRoute />
+
+```
+
+
+### use case 4
+```javascript
+import { PrivateRoute } from "react-router-condition";
+    
+<PrivateRoute condition={checkAuth()}  redirect={Login}>
+    <Route path="/setting" Compontent={Setting} />
+    <Route path="/profile" Compontent={Profile} />
+<PrivateRoute />
+
+```
+
+
+
+
 ## Todo
 
 hi
