@@ -1,5 +1,6 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import * as PropTypes from 'prop-types';
 
 const ConditionComponentRoute = ({
   condition,
@@ -7,7 +8,7 @@ const ConditionComponentRoute = ({
   component: Component,
   ...rest
 }) => {
-  if (!(condition && redirectURL)) {
+  if (!(condition)) {
     return <Route {...rest} />;
   }
 
@@ -15,9 +16,7 @@ const ConditionComponentRoute = ({
   return (
     <Route
       {...rest}
-      render={props =>
-        condition ? <Component {...props} /> : <failComponent {...props} />
-      }
+      render={(props) => (condition ? <Component {...props} /> : <failComponent {...props} />)}
     />
   );
 };
@@ -25,6 +24,6 @@ const ConditionComponentRoute = ({
 ConditionComponentRoute.propTypes = {
   condition: PropTypes.bool.isRequired,
   redirectURL: PropTypes.string.isRequired,
-  component: PropTypes.object.isRequired,
-  failComponent: PropTypes.object.isRequired
+  component: PropTypes.element.isRequired,
+  failComponent: PropTypes.element.isRequired,
 };

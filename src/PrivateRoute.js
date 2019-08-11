@@ -1,5 +1,6 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import * as PropTypes from 'prop-types';
 
 const PrivateRoute = ({
   condition,
@@ -15,14 +16,13 @@ const PrivateRoute = ({
   return (
     <Route
       {...rest}
-      render={props =>
-        condition ? {children} : <failComponent {...props} />
-      }
+      render={(props) => (condition ? { children } : <failComponent {...props} />)}
     />
   );
 };
 PrivateRoute.propTypes = {
   condition: PropTypes.bool.isRequired,
   redirectURL: PropTypes.string.isRequired,
-  component: PropTypes.object.isRequired
+  children: PropTypes.any.isRequired,
+  component: PropTypes.element.isRequired,
 };
